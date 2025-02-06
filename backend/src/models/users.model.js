@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-let userModel= new Schema({
+let userModel= new mongoose.Schema({
     email:{
         type:String,
         required: true,
@@ -16,7 +16,7 @@ let userModel= new Schema({
     },
     companyId:{
         type: mongoose.Schema.Types.ObjectId,
-        required :()=>{role === 'thirdParty'},
+        required :function(){this.role === 'thirdParty'},
         ref: "companies", //third party admins
     },
     firstName: {
@@ -49,4 +49,4 @@ let userModel= new Schema({
 
 const User = mongoose.model("User", userModel);
 
-export {User}
+export default User;
