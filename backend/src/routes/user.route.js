@@ -3,9 +3,11 @@ import { deleteUsers, getOneUser, getUsers, postUsers, updateUser } from "../con
 
 const employeeRouter = new Router();
 
-employeeRouter.get("/users",getUsers);
+employeeRouter.get("/employees",getUsers);
 employeeRouter.get("/user/:id",getOneUser);
 employeeRouter.post("/user",postUsers);
 employeeRouter.delete("/user/:id",deleteUsers);
 employeeRouter.put("/user/:id",updateUser);
+
+
 export default employeeRouter;

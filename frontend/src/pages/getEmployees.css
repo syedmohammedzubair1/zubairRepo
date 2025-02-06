@@ -1,0 +1,31 @@
+.employee-container {
+    margin-top: 20px;
+  }
+  
+  .employee-table {
+    border: 1px solid #1995AD;
+    background-color: #A1D6E2;
+  }
+  
+  .employee-table th {
+    background-color: #1995AD;
+    color: white;
+  }
+  
+  .employee-table td {
+    color: #1995AD;
+  }
+  
+  h1 {
+    color: #1995AD;
+  }
+  
+  @media (max-width: 768px) {
+    .employee-table td {
+      font-size: 12px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+  }
+  
