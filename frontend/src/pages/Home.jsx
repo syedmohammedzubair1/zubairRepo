@@ -121,31 +121,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar
-        style={{ background: "linear-gradient(135deg, #A1D6E2, #1995AD)" }}
-        variant="dark"
-        expand="lg"
-        fixed="top"
-        className={navbarSize === "large" ? "py-4" : "py-2"}
-      >
-        <Container>
-          <Navbar.Brand href="#" className="text-black">
-            {companyInfo.name}
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link href="#">Home</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
-              <Nav.Link href="#services">Services</Nav.Link>
-              <Nav.Link href="#projects">Projects</Nav.Link>
-              <Nav.Link href="#locations">Locations</Nav.Link>
-              <Nav.Link href="#contact">Contact</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       <Carousel>
         <Carousel.Item>
           <img
