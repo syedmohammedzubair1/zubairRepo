@@ -13,12 +13,13 @@ const Navbar1 = () => {
     >
       <Container>
         <Navbar.Brand href="#" className="fw-bold text-white">
+          <img src="logo.jpg" alt="logo" />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Logo
+            OSTECHSERVICE
           </motion.div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
@@ -52,12 +53,3 @@ const Navbar1 = () => {
 };
 
 export default Navbar1;
-
-// Usage tips:
-// 1. Install react-bootstrap and bootstrap if you haven't already.
-//    npm install react-bootstrap bootstrap framer-motion
-// 2. Import Bootstrap CSS in your index.js:
-//    import 'bootstrap/dist/css/bootstrap.min.css';
-// 3. Use <CustomNavbar /> in your app where you want the navbar to appear.
-
-// Let me know if you'd like to tweak anything—I'm happy to adjust it! 🎨
