@@ -1,9 +1,11 @@
-import express from "express";
+import {Router} from "express";
 import { deleteUsers, getOneUser, getUsers, postUsers, updateUser } from "../controllers/user.controller.js";
-const router=express.Router();
-router.get("/user",getUsers);
-router.get("/user/:id",getOneUser);
-router.post("/user",postUsers);
-router.delete("/user/:id",deleteUsers);
-router.put("/user/:id",updateUser);
-export default router;
+
+const employeeRouter = new Router();
+
+employeeRouter.get("/users",getUsers);
+employeeRouter.get("/user/:id",getOneUser);
+employeeRouter.post("/user",postUsers);
+employeeRouter.delete("/user/:id",deleteUsers);
+employeeRouter.put("/user/:id",updateUser);
+export default employeeRouter;

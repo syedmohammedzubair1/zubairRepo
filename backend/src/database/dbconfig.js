@@ -1,2 +1,12 @@
 import mongoose from "mongoose";
-mongoose.connect(`mongodb+srv://ZUBAIR:Zubair123@ostechservice.jqjzg.mongodb.net/OSTECHSERVICE`);
+import dotenv from "dotenv";
+dotenv.config()
+
+
+mongoose.connect(process.env.MONGODB_URL)
+.then(() =>{
+    console.log("DB Connected");
+})
+.catch(e =>{
+    console.log(e)
+})
