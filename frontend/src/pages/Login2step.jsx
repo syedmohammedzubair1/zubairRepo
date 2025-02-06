@@ -23,7 +23,7 @@ const Login1 = () => {
       setError('');
       setStep(2);
     } else {
-      setError('User does not exist. Please check your email or sign up.');
+      setError('User does not exist. Check email or sign up.');
     }
   };
 
@@ -35,6 +35,7 @@ const Login1 = () => {
       setSuccess(true);
     } else {
       setError('Incorrect password');
+      setSuccess(false);
     }
   };
 
@@ -119,6 +120,11 @@ const Login1 = () => {
                   {error}
                 </Typography>
               )}
+              {success && (
+                <Typography color="success" align="center">
+                  Login successful!
+                </Typography>
+              )}
               <Typography align="end">
                 <Link href="#" color="#1995AD" underline="hover">
                   Forgot password?
@@ -127,11 +133,7 @@ const Login1 = () => {
             </>
           )}
 
-          {success && (
-            <Typography color="primary" align="center">
-              Login successful!
-            </Typography>
-          )}
+          
 
           <Button
             type="submit"
