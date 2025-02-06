@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const contentSchema = new mongoose.Schema({
   type: { type: String, enum: ["service", "project", "location"], required: true },
