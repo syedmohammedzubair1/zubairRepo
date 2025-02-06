@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav, Container, Button, Modal } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Login1 from "../../pages/Login2step";
-
+import logo from "../../assets/logo.jpg";
 const Navbar1 = () => {
   const [loginVisible, setLoginVisible] = useState(false);
 
@@ -20,7 +20,17 @@ const Navbar1 = () => {
       >
         <Container>
           <Navbar.Brand href="#" className="fw-bold text-black">
-            <img src="logo.jpg" alt="logo" />
+            <div style={{display:"flex",alignItems:"center",}}>
+            <img
+              src={logo}
+              alt="logo"
+              style={{
+                width: "40px",
+                height: "40px",
+                marginRight: "10px",
+                borderRadius: "50%",
+              }}
+            />
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -28,6 +38,7 @@ const Navbar1 = () => {
             >
               OSTECHSERVICE
             </motion.div>
+            </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
