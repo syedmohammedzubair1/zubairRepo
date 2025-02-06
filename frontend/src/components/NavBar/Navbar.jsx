@@ -1,8 +1,15 @@
-import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Navbar, Nav, Container, Button, Modal } from "react-bootstrap";
 import { motion } from "framer-motion";
+import Login1 from "../../pages/Login2step";
+
 const Navbar1 = () => {
+  const [loginVisible, setLoginVisible] = useState(false);
+
+  const displayLogin = () => {
+    setLoginVisible(!loginVisible);
+  };
+
   return (
     <div>
       <Navbar
@@ -39,9 +46,9 @@ const Navbar1 = () => {
               )}
               <Button
                 variant="outline-light"
-                href="#login"
                 className="ms-3"
                 style={{ borderColor: "#A1D6E2", color: "black" }}
+                onClick={displayLogin}
               >
                 Login
               </Button>
@@ -49,6 +56,13 @@ const Navbar1 = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Login Popup (Modal) */}
+      <Modal show={loginVisible} onHide={displayLogin} centered>
+        <Modal.Body>
+          <Login1 />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
