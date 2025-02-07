@@ -1,39 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TextField, Button, Box, Typography, Link } from '@mui/material';
-
-const users = [
-    { email: 'user1@example.com', password: '123' },
-    { email: 'user2@example.com', password: '123' },
-    { email: 'user3@example.com', password: '123' },
-    { email: 'user4@example.com', password: '123' },
-    { email: 'user5@example.com', password: '123' },
-];
+import { EmployeeContext } from '../context/UserContext.jsx'; // Import the context
 
 const Login1 = () => {
   const [step, setStep] = useState(1);
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const handleNext = (e) => {
+  const { validateEmail, Login } = useContext(EmployeeContext);
+
+  const handleNext = async (e) => {
     e.preventDefault();
-    const userExists = users.find((user) => user.email === username);
-    if (userExists) {
-      setError('');
-      setStep(2);
-    } else {
-      setError('User does not exist. Check email or sign up.');
+    try {
+      const userExists = await validateEmail(email);
+      if (userExists) {
+        setError('');
+        setStep(2); // Move to password step if email exists
+      } else {
+        setError('User does not exist. Check email or sign up.');
+      }
+    } catch (err) {
+      setError('Error checking email.');
     }
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const user = users.find((user) => user.email === username);
-    if (user && user.password === password) {
+    try {
+      await Login(email, password);
       setError('');
       setSuccess(true);
-    } else {
+    } catch (err) {
       setError('Incorrect password');
       setSuccess(false);
     }
@@ -89,8 +88,8 @@ const Login1 = () => {
                 label="Email"
                 variant="outlined"
                 fullWidth
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
               {error && (
@@ -133,13 +132,15 @@ const Login1 = () => {
             </>
           )}
 
-          
-
           <Button
             type="submit"
             variant="contained"
             fullWidth
-            sx={{ backgroundColor: '#1995AD', '&:hover': { backgroundColor: '#A1D6E2' }, marginTop: '15px' }}
+            sx={{
+              backgroundColor: '#1995AD',
+              '&:hover': { backgroundColor: '#A1D6E2' },
+              marginTop: '15px',
+            }}
           >
             {step === 1 ? 'Next' : 'Login'}
           </Button>

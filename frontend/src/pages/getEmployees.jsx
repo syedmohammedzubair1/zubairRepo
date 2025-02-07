@@ -1,14 +1,14 @@
 import React, { useEffect, useContext } from 'react';
-import { EmployeeContext } from '../context/EmployeesContext';  // Fixed typo in import path
+import { EmployeeContext } from '../context/UserContext'; 
 import { Table, Container } from 'react-bootstrap';
-import './getEmployees.css'; // Assuming this file exists for styling
+import './getEmployees.css'; 
 
 const EmployeeListPage = () => {
-  const { employeesData, getEmployees } = useContext(EmployeeContext); // Destructure context
+  const { employeesData, getEmployees } = useContext(EmployeeContext); 
 
   useEffect(() => {
-    getEmployees(); // Fetch employees when component mounts
-  }, [getEmployees]);
+    getEmployees();
+  }, []);
 
   return (
     <Container className="employee-container">

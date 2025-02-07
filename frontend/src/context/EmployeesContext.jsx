@@ -1,32 +1,46 @@
-import axios from "axios";
-import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { createContext, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const APP_BASE_URL = 'http://localhost:4000/api/v1';
-
+// Create EmployeeContext
 export const EmployeeContext = createContext();
 
 const client = axios.create({
-  baseURL: APP_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 export const EmployeeContextProvider = ({ children }) => {
   const [employeesData, setEmployeesData] = useState([]);
-  const navigate = useNavigate();  // Renamed router to navigate for better understanding
+  const navigate = useNavigate();
 
+  // Function to fetch employee data
   const getEmployees = async () => {
     try {
-      const response = await client.get("/employees");
-      setEmployeesData(response.data); // Ensures the data is stored in state
+      const response = await client.get('/employees');
+      setEmployeesData(response.data);
       return response.data;
     } catch (error) {
-      console.error("Error fetching employees:", error);  // Improved error handling
+      console.error('Error fetching employees:', error);
+    }
+  };
+
+  // Function for employee login
+  const employeeLogin = async (email, password) => {
+    try {
+      const request = await client.post('/employee/login', { email, password });
+      if (request.status === 200) {
+        localStorage.setItem('employeeToken', request.data.token);
+        navigate('/employee/dashboard');
+      }
+    } catch (error) {
+      console.error('Employee login failed:', error);
     }
   };
 
   const data = {
     employeesData,
     getEmployees,
+    employeeLogin,
   };
 
   return (
@@ -35,3 +49,6 @@ export const EmployeeContextProvider = ({ children }) => {
     </EmployeeContext.Provider>
   );
 };
+
+// Custom hook to use EmployeeContext
+export const useEmployeeContext = () => useContext(EmployeeContext);
