@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react';
-import { EmployeeContext } from '../context/UserContext'; 
+import { UserContext } from '../context/UserContext.jsx'; 
 import { Table, Container } from 'react-bootstrap';
 import './getEmployees.css'; 
 
 const EmployeeListPage = () => {
-  const { employeesData, getEmployees } = useContext(EmployeeContext); 
+  const { employeesData, getEmployees } = useContext(UserContext); 
 
   useEffect(() => {
     getEmployees();

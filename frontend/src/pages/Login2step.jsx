@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TextField, Button, Box, Typography, Link } from '@mui/material';
-import { EmployeeContext } from '../context/UserContext.jsx'; // Import the context
+import { UserContext } from '../context/UserContext.jsx'; // Import the context
 
 const Login1 = () => {
   const [step, setStep] = useState(1);
@@ -9,7 +9,7 @@ const Login1 = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const { validateEmail, Login } = useContext(EmployeeContext);
+  const { validateEmail, Login } = useContext(UserContext);
 
   const handleNext = async (e) => {
     e.preventDefault();

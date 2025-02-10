@@ -1,13 +1,15 @@
 import React from 'react'
-import About from './about'
-import Services from "./Services";  
-import Projects from "./Projects"; 
-import Locations from "./Locations";  
-import ContactUs from "./ContactUs"; 
+import About from './AdminContent/About'
+import Services from "./AdminContent/Services";  
+import Projects from "./AdminContent/Projects"; 
+import Locations from "./AdminContent/Locations";  
+import ContactUs from "./ContactUs";
+import Navbar1 from '../components/NavBar/Navbar'; 
 
 function Home1() {
   return (
     <div>
+        <Navbar1 />
         <About />
         <Services />
         <Projects />

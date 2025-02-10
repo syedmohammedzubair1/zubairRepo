@@ -81,7 +81,7 @@ const Main = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function DashboardLayoutBasic() {
+export default function AdminDashBoard() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = React.useState(!isMobile);

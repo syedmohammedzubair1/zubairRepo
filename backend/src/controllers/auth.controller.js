@@ -40,23 +40,23 @@ export const Login = async (req,res) =>{
 
         // const isMatch = await bcrypt.compare(password,user.password);
 
-        if(user){
+        if(user && password === user.password){
 
             const token = jwt.sign(
                 {id : user._id, email : user.email, role : user.role},
-                process.env.JWT_SECRET || "default_secret",
+                process.env.JWT_SECRET || "default_cookie_secret",
                 { expiresIn: "3h" }
             )
 
+            console.log(token)
+
             res.cookie("token", token, {
-                httpOnly: true,      
-                secure: process.env.NODE_ENV === "production", 
-                sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax",
-                maxAge: 2 * 60 * 60 * 1000, // Token expiry time in milliseconds (2 hours)
-              });
-
-              console.log(req.body)
-
+              httpOnly: true,
+              secure: false ,//process.env.NODE_ENV === "production",
+              sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax",
+              maxAge: 2 * 60 * 60 * 1000,
+              signed: true,
+            });
 
             res.status(httpStatus.OK).json({
                 message : "Login Successfully",

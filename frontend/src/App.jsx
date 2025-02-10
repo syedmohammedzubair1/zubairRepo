@@ -5,39 +5,40 @@ import Footer from "./components/Footer/Footer";
 import Home1 from "./pages/Home1";
 import Login from "./pages/Login";
 import Login1 from "./pages/Login2step";
-import DashboardLayoutBasic from "./components/DashboardComponent/Employee";
-import { EmployeeListPage } from "./pages/getEmployees";
-import { EmployeeContextProvider } from "./context/EmployeeContext";
-import { AdminProvider } from './context/AdminContext';
-import { ThirdPartyProvider } from './context/ThirdPartyContext';
-import { AuthProvider } from './context/AuthContext';
+import AdminDashBoard from "./components/DashboardComponent/AdminDashBoard.jsx";
+import { EmployeeListPage } from "./pages/getEmployees.jsx";
+import { EmployeeContextProvider } from "./context/EmployeesContext.jsx";
+import { AdminContextProvider } from './context/SuperAdminContext.jsx';
+import { ThirdPartyContextProvider } from './context/ThirdPartyContext.jsx';
+import { AuthProvider } from "./context/AuthContext.jsx";
 import NotFound from "./pages/NotFound";
-import ProtectedRoute from './components/ProtectedRoute';
-import AdminPage from './pages/AdminPage';
-import ThirdPartyPage from './pages/ThirdPartyPage';
-import Unauthorized from './pages/Unauthorized';
+import ProtectedRoute from "./context/ProtectedRoute.jsx"
+import AdminPage from './pages/Admin/AdminPage.jsx';
+import ThirdPartyPage from './pages/ThirdParty/ThirdPartyPage.jsx';
+import Unauthorized from "./pages/Unauthorized.jsx";
+import { UserContextProvider } from "./context/UserContext.jsx";
 
 function App() {
   return (
     <div>
-      <AuthProvider>
-        <AdminProvider>
-          <ThirdPartyProvider>
+    <AuthProvider>
+      <UserContextProvider>
+        <AdminContextProvider>
+          <ThirdPartyContextProvider>
             <EmployeeContextProvider>
-              <Router>
-                <Navbar1 />
                 <Routes>
-                  {/* Public routes */}
+                  
                   <Route path="/home" element={<Home1 />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/login1" element={<Login1 />} />
+                  <Route path="/test" element={<AdminDashBoard />} />
 
                   {/* Protected routes for employees */}
                   <Route
                     path="/dashboard"
                     element={
                       <ProtectedRoute allowedRoles={['employee']}>
-                        <DashboardLayoutBasic />
+                        <AdminDashBoard />
                       </ProtectedRoute>
                     }
                   />
@@ -77,12 +78,12 @@ function App() {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer />
-              </Router>
             </EmployeeContextProvider>
-          </ThirdPartyProvider>
-        </AdminProvider>
-      </AuthProvider>
-    </div>
+          </ThirdPartyContextProvider>
+        </AdminContextProvider>
+      </UserContextProvider>
+    </AuthProvider>
+  </div>
   );
 }
 

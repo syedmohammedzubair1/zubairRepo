@@ -2,13 +2,13 @@ import axios from 'axios';
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const EmployeeContext = createContext();
+export const UserContext = createContext();
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL, 
 });
 
-export const EmployeeContextProvider = ({ children }) => {
+export const UserContextProvider = ({ children }) => {
   const [employeesData, setEmployeesData] = useState([]);
   const navigate = useNavigate(); 
 
@@ -18,7 +18,7 @@ export const EmployeeContextProvider = ({ children }) => {
       setEmployeesData(response.data);
       return response.data;
     } catch (error) {
-      console.error('Error fetching employees:', error);
+      console.log(error.response.data.message)
     }
   };
 
@@ -61,8 +61,8 @@ export const EmployeeContextProvider = ({ children }) => {
   };
 
   return (
-    <EmployeeContext.Provider value={data}>
+    <UserContext.Provider value={data}>
       {children}
-    </EmployeeContext.Provider>
+    </UserContext.Provider>
   );
 };

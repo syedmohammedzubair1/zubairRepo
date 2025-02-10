@@ -14,24 +14,24 @@ dotenv.config()
 const app = express();
 
 app.use(cors());
-app.use(cookieParser());
 
-
+app.use(cookieParser(process.env.SESSION_SECRET || 'default_cookie_secret'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use("/api/v1",employeeRouter);
-app.use("/api/v1",authRoutes);
-
 app.use(
     session({
-      secret: process.env.SESSION_SECRET || "default_secret",
+      secret: process.env.SESSION_SECRET || 'default_cookie_secret',
       resave: false,
       saveUninitialized: true,
     })
   );
 
-  app.use(passport.initialize());
+app.use(passport.initialize());
+
+
+app.use("/api/v1",employeeRouter);
+app.use("/api/v1",authRoutes);
 
 
 
