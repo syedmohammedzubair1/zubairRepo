@@ -13,21 +13,30 @@ dotenv.config()
 
 const app = express();
 
-app.use(cors({
-  credentials: true
-}));
+app.use(
+    cors({
+      origin: "http://localhost:5174", 
+      credentials: true,
+    })
+  );
 
 app.use(cookieParser(process.env.SESSION_SECRET || 'default_cookie_secret'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(
-    session({
-      secret: process.env.SESSION_SECRET || 'default_cookie_secret',
-      resave: false,
-      saveUninitialized: true,
-    })
-  );
+  session({
+    secret: process.env.SESSION_SECRET || 'default_cookie_secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', 
+      sameSite: 'lax',
+    }
+  })
+);
+
 
 app.use(passport.initialize());
 

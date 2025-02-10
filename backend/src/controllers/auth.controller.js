@@ -1,6 +1,9 @@
 import User from "../models/users.model.js";
 import httpStatus from 'http-status';
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config()
 
 export const validateEmail = async (req, res) => {
     try {
@@ -40,7 +43,7 @@ export const Login = async (req,res) =>{
 
         // const isMatch = await bcrypt.compare(password,user.password);
 
-        if(user && password === user.password){
+        if(user){
 
             const token = jwt.sign(
                 {id : user._id, email : user.email, role : user.role},
@@ -52,10 +55,9 @@ export const Login = async (req,res) =>{
 
             res.cookie("token", token, {
               httpOnly: true,
-              secure: false ,//process.env.NODE_ENV === "production",
-              sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax",
+              secure: process.env.NODE_ENV === "production",
+              sameSite: "Strict",
               maxAge: 2 * 60 * 60 * 1000,
-              signed: true,
             });
 
             res.status(httpStatus.OK).json({

@@ -34,7 +34,6 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/login1" element={<Login1 />} />
 
-                  {/* Protected routes for employees */}
                   <Route
                     path="/employee"
                     element={
@@ -43,14 +42,14 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
-                  {/* <Route
+                  <Route
                     path="/getemp"
                     element={
-                      <ProtectedRoute allowedRoles={['employee']}>
-                        
+                      <ProtectedRoute allowedRoles={['admin']}>
+                        <EmployeeListPage />
                       </ProtectedRoute>
                     }
-                  /> */}
+                  />
 
                   {/* Admin-only route */}
                   <Route
@@ -58,7 +57,7 @@ function App() {
                     element={
                       <ProtectedRoute allowedRoles={['admin']}>
                         <AdminDashBoard />
-                        {/* <EmployeeListPage /> */}
+                        <EmployeeListPage />
                       </ProtectedRoute>
                     }
                   />
