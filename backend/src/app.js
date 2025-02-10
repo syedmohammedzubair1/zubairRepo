@@ -13,7 +13,9 @@ dotenv.config()
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  credentials: true
+}));
 
 app.use(cookieParser(process.env.SESSION_SECRET || 'default_cookie_secret'));
 app.use(express.json());

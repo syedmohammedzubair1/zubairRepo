@@ -17,6 +17,8 @@ import AdminPage from './pages/Admin/AdminPage.jsx';
 import ThirdPartyPage from './pages/ThirdParty/ThirdPartyPage.jsx';
 import Unauthorized from "./pages/Unauthorized.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
+import EmployeeDashBoard from "./components/DashboardComponent/EmployeeDashBoard.jsx";
+import ThirdPartyDB from "./components/DashboardComponent/ThirdPartyDB.jsx";
 
 function App() {
   return (
@@ -31,32 +33,32 @@ function App() {
                   <Route path="/home" element={<Home1 />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/login1" element={<Login1 />} />
-                  <Route path="/test" element={<AdminDashBoard />} />
 
                   {/* Protected routes for employees */}
                   <Route
-                    path="/dashboard"
+                    path="/employee"
                     element={
                       <ProtectedRoute allowedRoles={['employee']}>
-                        <AdminDashBoard />
+                          <EmployeeDashBoard />
                       </ProtectedRoute>
                     }
                   />
-                  <Route
+                  {/* <Route
                     path="/getemp"
                     element={
                       <ProtectedRoute allowedRoles={['employee']}>
-                        <EmployeeListPage />
+                        
                       </ProtectedRoute>
                     }
-                  />
+                  /> */}
 
                   {/* Admin-only route */}
                   <Route
                     path="/admin"
                     element={
                       <ProtectedRoute allowedRoles={['admin']}>
-                        <AdminPage />
+                        <AdminDashBoard />
+                        {/* <EmployeeListPage /> */}
                       </ProtectedRoute>
                     }
                   />
@@ -66,7 +68,7 @@ function App() {
                     path="/third-party"
                     element={
                       <ProtectedRoute allowedRoles={['third-party']}>
-                        <ThirdPartyPage />
+                        <ThirdPartyDB />
                       </ProtectedRoute>
                     }
                   />

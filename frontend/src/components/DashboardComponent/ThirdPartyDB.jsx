@@ -121,7 +121,7 @@ const Main = styled("main", {
     },
   }));
   
-export default function AdminDashBoard() {
+export default function ThirdPartyDB() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = React.useState(!isMobile);
@@ -172,7 +172,7 @@ export default function AdminDashBoard() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Admin Dashboard
+              Thirdparty Dashboard
             </Typography>
           </Toolbar>
         </CustomAppBar>

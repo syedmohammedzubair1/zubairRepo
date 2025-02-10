@@ -4,7 +4,7 @@ import { isAuth } from "../middlewares/isAuth.js";
 
 const employeeRouter = new Router();
 
-employeeRouter.get("/users",isAuth, getUsers);
+employeeRouter.get("/users", getUsers);
 employeeRouter.get("/user/:id",isAuth, getOneUser);
 employeeRouter.post("/user",isAuth, postUsers);
 employeeRouter.delete("/user/:id",isAuth, deleteUsers);

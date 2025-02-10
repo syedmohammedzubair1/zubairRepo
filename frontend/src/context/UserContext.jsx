@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 export const UserContext = createContext();
 
 const client = axios.create({
@@ -36,19 +37,30 @@ export const UserContextProvider = ({ children }) => {
 
   const Login = async (email, password) => {
     try {
+  
       const request = await client.post('/login', {
         email,
         password,
       });
-      console.log(request.status)
+  
+      console.log(request.data.user.role);
+  
       if (request.status === 200) {
         localStorage.setItem('token', request.data.token);
-        localStorage.setItem('user', {email});
-        navigate('/test');
+        localStorage.setItem('user', JSON.stringify({ email }));
+        if(request.data.user.role == "admin"){
+          navigate("/admin");
+        }else if(request.data.user.role == "employee"){
+          navigate("/employee");
+        }else if(request.data.user.role == "thirdParty"){
+          navigate("/third-party");
+      }else{
+        navigate("*")
       }
+    }
     } catch (e) {
-      console.log(e);
-      throw new Error('Login failed');
+      console.error('Login failed:', e);
+      // Handle error gracefully here or show message to user
     }
   };
 
