@@ -19,6 +19,7 @@ import Unauthorized from "./pages/Unauthorized.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
 import EmployeeDashBoard from "./components/DashboardComponent/EmployeeDashBoard.jsx";
 import ThirdPartyDB from "./components/DashboardComponent/ThirdPartyDB.jsx";
+import OHome from "./pages/HomePage/OHome.jsx";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
             <EmployeeContextProvider>
                 <Routes>
                   
-                  <Route path="/home" element={<Home1 />} />
+                  <Route path="/" element={<OHome />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/login1" element={<Login1 />} />
 

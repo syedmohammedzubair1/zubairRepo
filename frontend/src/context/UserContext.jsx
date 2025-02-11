@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './AuthContext'; // Use AuthContext directly
+import { AuthContext } from './AuthContext';
 
 export const UserContext = createContext();
 
@@ -11,8 +11,23 @@ const client = axios.create({
 
 export const UserContextProvider = ({ children }) => {
   const [employeesData, setEmployeesData] = useState([]);
-  const { userRole, loginAs } = useContext(AuthContext); // Correctly use AuthContext here
+  const { userRole, loginAs } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userRole) {
+      console.log("context",userRole)
+      if (userRole === 'admin') {
+        navigate('/admin');
+      } else if (userRole === 'employee') {
+        navigate('/employee');
+      } else if (userRole === 'thirdParty') {
+        navigate('/third-party');
+      } else {
+        navigate('*');
+      }
+    }
+  }, [userRole, navigate]);
 
   const getEmployees = async () => {
     try {
@@ -42,27 +57,15 @@ export const UserContextProvider = ({ children }) => {
       });
 
       if (request.status === 200) {
-        const role = request.data.user.role; // Get the user role from the response
+        const role = request.data.user.role; 
+        console.log("-->",role)
+        loginAs(role);
         localStorage.setItem('token', request.data.token);
         localStorage.setItem('user', JSON.stringify({ email }));
-
-        // Update the role in the AuthContext
-        loginAs(role);
-
-        // Navigate based on the role
-        if (role === 'admin') {
-          navigate('/admin');
-        } else if (role === 'employee') {
-          navigate('/employee');
-        } else if (role === 'thirdParty') {
-          navigate('/third-party');
-        } else {
-          navigate('*');
-        }
       }
     } catch (e) {
       console.error('Login failed:', e);
-      // Handle error gracefully here or show message to user
+
     }
   };
 
