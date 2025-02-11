@@ -51,14 +51,11 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
-
-                  {/* Admin-only route */}
                   <Route
                     path="/admin"
                     element={
                       <ProtectedRoute allowedRoles={['admin']}>
                         <AdminDashBoard />
-                        <EmployeeListPage />
                       </ProtectedRoute>
                     }
                   />

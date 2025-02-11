@@ -6,8 +6,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [userRole, setUserRole] = useState(''); // Possible values: 'admin', 'employee', 'third-party'
 
-  
-
   const loginAs = (role) => {
     setUserRole(role);
   };

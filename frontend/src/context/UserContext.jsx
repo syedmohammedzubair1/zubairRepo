@@ -16,7 +16,6 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (userRole) {
-      console.log("context",userRole)
       if (userRole === 'admin') {
         navigate('/admin');
       } else if (userRole === 'employee') {

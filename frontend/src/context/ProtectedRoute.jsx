@@ -1,8 +1,9 @@
-import { useAuth } from './AuthContext';
+import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 const ProtectedRoute = ({ allowedRoles, children }) => {
-  const { userRole } = useAuth();
+  const { userRole } = useContext(AuthContext);
 
   if (!allowedRoles.includes(userRole)) {
     return <Navigate to="/unauthorized" />;
