@@ -17,7 +17,7 @@ const Navbar1 = ({ scrollToSection }) => {
         expand="lg"
         style={{ background: "linear-gradient(135deg, #A1D6E2, #1995AD)" }}
         variant="dark"
-        className="shadow-sm p-2"
+        className="navcontainer shadow-sm p-2"
       >
         <Container>
           <Navbar.Brand href="#" className="fw-bold text-black">
@@ -58,13 +58,13 @@ const Navbar1 = ({ scrollToSection }) => {
               >
                 Services
               </Nav.Link>
-              <Nav.Link
+              {/* <Nav.Link
                 onClick={() => scrollToSection("projects")}
                 className="mx-2"
                 style={{ color: "black", fontWeight: "bold", cursor: "pointer" }}
               >
                 Projects
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link
                 onClick={() => scrollToSection("locations")}
                 className="mx-2"

@@ -23,7 +23,7 @@ import OHome from "./pages/HomePage/OHome.jsx";
 
 function App() {
   return (
-    <div>
+    <>
     <AuthProvider>
       <UserContextProvider>
         <AdminContextProvider>
@@ -82,7 +82,7 @@ function App() {
         </AdminContextProvider>
       </UserContextProvider>
     </AuthProvider>
-  </div>
+  </>
   );
 }
 
