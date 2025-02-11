@@ -20,4 +20,4 @@ const contentSchema = new mongoose.Schema({
 
 const Content = mongoose.model("Content", contentSchema);
 
-export {Content};
+export default Content;
