@@ -25,6 +25,7 @@ export const validateEmail = async (req, res) => {
 
 
 export const Login = async (req,res) =>{
+
     const {email, password} = req.body;
     console.log(email, password)
 
@@ -42,7 +43,6 @@ export const Login = async (req,res) =>{
         }
 
         // const isMatch = await bcrypt.compare(password,user.password);
-
         if(user){
 
             const token = jwt.sign(
@@ -58,9 +58,10 @@ export const Login = async (req,res) =>{
               secure: process.env.NODE_ENV === "production",
               sameSite: "Strict",
               maxAge: 2 * 60 * 60 * 1000,
+              
             });
-
-            res.status(httpStatus.OK).json({
+            console.log("NODE_ENV:", process.env.NODE_ENV);
+            res.status(200).json({
                 message : "Login Successfully",
                 token : token,
                 user : {id: user._id, email: user.email, role : user.role}

@@ -12,6 +12,7 @@ const jwtOptions = {
 
 const jwtVerify = async (payload, done) => {
   try {
+    
     console.log("JWT Payload Received:", payload);  
 
     const user = await User.findById(payload.id);

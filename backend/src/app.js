@@ -15,9 +15,9 @@ const app = express();
 
 app.use(cors())
 
-app.use(cookieParser(process.env.SESSION_SECRET || 'default_cookie_secret'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
 
 app.use(
   session({
@@ -31,10 +31,9 @@ app.use(
     }
   })
 );
-
-
 app.use(passport.initialize());
 
+app.use(cookieParser(process.env.SESSION_SECRET || 'default_cookie_secret'));
 
 app.use("/api/v1",employeeRouter);
 app.use("/api/v1",authRoutes);
