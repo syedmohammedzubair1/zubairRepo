@@ -1,7 +1,32 @@
 import Content from "../models/content.model.js";
 import httpStatus from "http-status";
 
-// Update the About section
+
+export const createContent = async (req, res) => {
+    try {
+
+      const { about, projects, services, contactInfo, locations } = req.body;
+  
+      const newContent = new Content({
+        about,       // Object
+        projects,    // Array of objects
+        services,    // Array of objects
+        contactInfo, // Object
+        locations,   // Array of objects
+        createdAt: Date.now(),
+        updatedAt: Date.now()
+      });
+  
+      const savedContent = await newContent.save();
+  
+      return res.status(201).json({ message: "Content created successfully", content: savedContent });
+  
+    } catch (error) {
+      return res.status(500).json({ message: `Error: ${error.message}` });
+    }
+  };
+  
+
 export const updateAboutSection = async (req, res) => {
   try {
     const { contentId } = req.params;
@@ -158,4 +183,66 @@ export const updateLocation = async (req, res) => {
     }
 };
   
+  
+//About
+// {
+//     "about": {
+//       "title": "Updated About Us",
+//       "description": "We have expanded our operations worldwide.",
+//       "images": [
+//         "https://example.com/images/about-updated1.jpg",
+//         "https://example.com/images/about-updated2.jpg"
+//       ]
+//     }
+//   }
+  
+
+// {
+//     "projects": [
+//       {
+//         "title": "New Project Gamma",
+//         "description": "Project Gamma focuses on cloud computing solutions.",
+//         "video": "https://example.com/videos/project-gamma.mp4",
+//         "metadata": {
+//           "year": 2025,
+//           "client": "Client Z"
+//         }
+//       }
+//     ]
+//   }
+  
+
+// {
+//     "services": [
+//       {
+//         "title": "Updated Service 1",
+//         "description": "We have updated our consulting services."
+//       },
+//       {
+//         "title": "Updated Service 2",
+//         "description": "Our development services now include AI solutions."
+//       }
+//     ]
+//   }
+
+// {
+//     "contactInfo": {
+//       "email": "newemail@company.com",
+//       "phone": "+987654321",
+//       "address": "456 Future Avenue, New City, Country"
+//     }
+//   }
+  
+
+// {
+//     "locations": [
+//       {
+//         "coordinates": {
+//           "lat": 48.8566,
+//           "lng": 2.3522
+//         },
+//         "address": "Paris, France"
+//       }
+//     ]
+//   }
   
