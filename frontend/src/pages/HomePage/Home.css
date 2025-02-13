@@ -178,3 +178,13 @@ section {
   margin-top: 20px;
 }
 
+.allcontainer{
+  width: 100%;
+  position: relative;
+}
+
+.navbarfixed{
+  width: 100%;
+  z-index: 999999;
+  position: fixed;
+}

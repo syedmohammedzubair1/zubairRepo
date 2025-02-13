@@ -5,6 +5,10 @@ import Herosection from "../../components/HomeComponent/Herosection";
 import Carousel from "../../components/HomeComponent/Carousel";
 import Homepageswiper from "../../components/HomeComponent/homePageSwiper";
 import HomeMin from "../../components/HomeComponent/HomeMin";
+import Waves from "./Waves";
+import AboutYourCompany from "./AboutYourCompany";
+import ContactForm from "./ContactForm";
+import Ourservicespage from "./Ourservicepage";
 
 const OHome = () => {
   const heroSectionRef = useRef(null);
@@ -68,12 +72,16 @@ const OHome = () => {
 
   return (
     <>
+<div className="allcontainer">
 
-    
+    <div className="navbarfixed">
+
       <Navbar1 scrollToSection={scrollToSection} />
+    </div>
 
       <div ref={heroSectionRef} data-section="herosection" className={`section ${visibleSections["herosection"] ? "fade-in" : "hidden"}`}>
-        <Herosection />
+        {/* <Herosection /> */}
+        <Waves />
       </div>
 
       <div ref={carouselRef} data-section="carousel" className={`section ${visibleSections["carousel"] ? "fade-in" : "hidden"}`}>
@@ -81,12 +89,20 @@ const OHome = () => {
       </div>
 
       <div ref={homeMinRef} data-section="contact" className={`section ${visibleSections["contact"] ? "fade-in" : "hidden"}`}>
-        <HomeMin />
+      <Ourservicespage />
       </div>
+
+
+      <AboutYourCompany />
+      <HomeMin />
 
       <div ref={homePageSwiperRef} data-section="homepageSwiper" className={`section ${visibleSections["homepageSwiper"] ? "fade-in" : "hidden"}`}>
         <Homepageswiper />
       </div>
+      <ContactForm />
+
+</div>
+
     </>
   );
 };
