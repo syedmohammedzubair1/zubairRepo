@@ -53,14 +53,17 @@ export const UserContextProvider = ({ children }) => {
       const request = await client.post('/login', {
         email,
         password,
-      });
+      },{
+        withCredential : true,
+      }
+    );
 
       if (request.status === 200) {
         const role = request.data.user.role; 
         console.log("-->",role)
         loginAs(role);
         localStorage.setItem('token', request.data.token);
-        localStorage.setItem('user', JSON.stringify({ email }));
+        localStorage.setItem('user', JSON.stringify({ email}));
       }
     } catch (e) {
       console.error('Login failed:', e);
