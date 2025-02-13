@@ -15,8 +15,6 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 import express from "express";
 import cors from "cors";
 import employeeRouter from "./routes/user.route.js";
-import express from "express";
-import cors from "cors";
 import UserRouter from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
 import "./database/dbconfig.js";

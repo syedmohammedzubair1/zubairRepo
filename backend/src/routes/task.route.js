@@ -1,19 +1,4 @@
 import {Router} from "express";
-<<<<<<< HEAD
-import { deleteTasks, getOneTask, getTasks, postTasks, updateTask } from "../controllers/task.controller.js";
-import { isAuth } from "../middlewares/isAuth.js";
-
-const taskRouter = new Router();
-
-taskRouter.get("/tasks", getTasks);
-taskRouter.get("/task/:id",isAuth, getOneTask);
-taskRouter.post("/task",isAuth, postTasks);
-taskRouter.delete("/task/:id",isAuth, deleteTasks);
-taskRouter.put("/task/:id",isAuth, updateTask);
-
-
-export default taskRouter;
-=======
 import { getTasks,
     getTaskById,
     createTask,
@@ -80,4 +65,3 @@ export default taskRouter;
 //     "comments": "Excellent work, met all deadlines and exceeded expectations."
 //   }
   
->>>>>>> fb68908f05537bc58cf71935f078312e67779036

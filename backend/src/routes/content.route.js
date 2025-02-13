@@ -1,23 +1,5 @@
 import { Router } from "express";
 import { 
-<<<<<<< HEAD
-    deleteContents, 
-    getOneContent, 
-    getContents, 
-    postContents, 
-    updateContent
-} from "../controllers/content.controller.js";
-import { isAuth } from "../middlewares/isAuth.js";
-
-const contentRouter = new Router();
-
-contentRouter.get("/contents", isAuth, getContents);
-contentRouter.post("/content", isAuth, postContents);
-contentRouter.get("/content/:id", isAuth, getOneContent);
-contentRouter.delete("/content/:id", isAuth, deleteContents);
-contentRouter.put("/content/:id", isAuth, updateContent);
-
-=======
     createContent,
     addService, 
     addProject, 
@@ -50,6 +32,5 @@ contentRouter.route('/content/contact/:contentId')
 
 contentRouter.route('/content/locations/:contentId')
     .put(isAuth, isAdmin, updateLocation);
->>>>>>> fb68908f05537bc58cf71935f078312e67779036
 
 export default contentRouter;

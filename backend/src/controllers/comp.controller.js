@@ -3,32 +3,10 @@ import Company from "../models/companies.model.js";
 export const getCompanies=async(req,res)=>{
     try {
         const company=await Company.find();
-<<<<<<< HEAD
-=======
-
->>>>>>> fb68908f05537bc58cf71935f078312e67779036
         if(company.length===0){
             return res.status(400).json({message:"No Companies found"});
         }
         res.status(200).json(company);
-<<<<<<< HEAD
-    }
-    catch(err){
-        res.status(500).json({message:err.message});
-    }
-}
-
-export const postCompanies = async (req, res) => {
-    try {
-        const company = new Company(req.body);
-        const result = await company.save();
-        res.status(201).json({ message: "Company created successfully", company: result });
-    } catch (err) {
-        console.error("Error here:", err);
-        res.status(500).json({ error: "Failed to create company", details: err.message });
-    }
-};
-=======
     }catch (e) {
       res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: `Error occurred: ${e.message}` });
   }
@@ -72,7 +50,6 @@ export const postCompanies = async (req, res) => {
     }
 };
 
->>>>>>> fb68908f05537bc58cf71935f078312e67779036
 export const deleteCompanies=async(req,res)=>{
     try {
         const company=await Company.findByIdAndDelete(req.params.id);
@@ -85,11 +62,8 @@ export const deleteCompanies=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
-<<<<<<< HEAD
-=======
 
 
->>>>>>> fb68908f05537bc58cf71935f078312e67779036
 export const getOneCompany = async (req, res) => {
     try {
         const company = await Company.findById(req.params.id);

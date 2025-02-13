@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { deleteNotifications, getOneNotification, getNotifications, postNotifications, updateNotification } from "../controllers/notify.controller.js";
+import { getOneNotification, getNotifications, postNotifications, updateNotification } from "../controllers/notify.controller.js";
 import { isAuth } from "../middlewares/isAuth.js";
 
 const notificationRouter = new Router();
