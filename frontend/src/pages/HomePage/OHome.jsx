@@ -9,6 +9,7 @@ import Waves from "./Waves";
 import AboutYourCompany from "./AboutYourCompany";
 import ContactForm from "./ContactForm";
 import Ourservicespage from "./Ourservicepage";
+import CircleContent from "./CircleContent";
 
 const OHome = () => {
   const heroSectionRef = useRef(null);
@@ -101,7 +102,7 @@ const scrollToSection = (section) => {
         <AboutYourCompany />
         {/* <HomeMin /> */}
       </div>
-
+      <CircleContent/>
       <div ref={servicesRef} data-section="services" className={`section ${visibleSections["services"] ? "fade-in" : "hidden"}`}>
         <Ourservicespage />
       </div>
@@ -116,6 +117,8 @@ const scrollToSection = (section) => {
       <div ref={homeMinRef} data-section="contact" className={`section ${visibleSections["contact"] ? "fade-in" : "hidden"}`}>
       <ContactForm />
       </div>
+
+      
       
 
 </div>
