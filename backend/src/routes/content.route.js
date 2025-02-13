@@ -5,12 +5,15 @@ import {
     addProject, 
     updateContactUs, 
     updateLocation,
-    updateAboutSection
+    updateAboutSection,
+    getContent
 } from "../controllers/content.controller.js";
 
 import { isAuth, isAdmin } from "../middlewares/isAuth.js";
 
 const contentRouter = new Router();
+
+contentRouter.route('/content').get(getContent);
 
 contentRouter.route('/content')
     .post(isAuth, isAdmin, createContent);

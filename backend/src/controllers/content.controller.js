@@ -2,6 +2,19 @@ import Content from "../models/content.model.js";
 import httpStatus from "http-status";
 
 
+
+export const getContent = async (req, res) => {
+  try {
+    const content = await Content.findOne();
+    if (!content) {
+      return res.status(httpStatus.NOT_FOUND).json({ message: "Content not found" });
+    }
+    return res.status(httpStatus.OK).json({ content });
+  } catch (error) {
+    return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: `Error: ${error.message}` });
+  }
+};
+
 export const createContent = async (req, res) => {
     try {
 

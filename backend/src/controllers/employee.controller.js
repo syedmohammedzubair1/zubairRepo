@@ -1,3 +1,4 @@
+import Task from "../models/task.model.js";
 import User from "../models/users.model.js";
 
 export const updateSalaryOrBonus = async (req, res) => {
@@ -79,6 +80,39 @@ export const getSalaryAndBonusData = async (req, res) => {
 };
 
 
-
-
-
+export const getEmployeePerformance = async (req, res) => {
+    try {
+      // req.user is set by the authentication middleware
+      const employeeId = req.user._id;
+  
+      // Find tasks where the employee is assigned
+      const tasks = await Task.find({ assignedTo: { $in: [employeeId] } });
+  
+      // Gather all reviews from these tasks
+      let allReviews = [];
+      tasks.forEach((task) => {
+        if (task.reviews && task.reviews.length > 0) {
+          allReviews = allReviews.concat(task.reviews);
+        }
+      });
+  
+      // Calculate average marks if reviews exist
+      let averageMarks = null;
+      if (allReviews.length > 0) {
+        const totalMarks = allReviews.reduce(
+          (sum, review) => sum + (review.marks || 0),
+          0
+        );
+        averageMarks = totalMarks / allReviews.length;
+      }
+  
+      res.status(200).json({
+        averageMarks,
+        totalReviews: allReviews.length,
+        reviews: allReviews,
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  
