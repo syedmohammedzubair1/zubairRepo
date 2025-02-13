@@ -20,6 +20,7 @@ import { UserContextProvider } from "./context/UserContext.jsx";
 import EmployeeDashBoard from "./components/DashboardComponent/EmployeeDashBoard.jsx";
 import ThirdPartyDB from "./components/DashboardComponent/ThirdPartyDB.jsx";
 import OHome from "./pages/HomePage/OHome.jsx";
+import "./App.css"
 
 function App() {
   return (

@@ -62,8 +62,6 @@ export const deleteCompanies=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
-
-
 export const getOneCompany = async (req, res) => {
     try {
         const company = await Company.findById(req.params.id);
