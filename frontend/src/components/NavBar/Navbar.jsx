@@ -15,7 +15,7 @@ const Navbar1 = ({ scrollToSection }) => {
     <div>
       <Navbar
         expand="lg"
-        style={{ background: "linear-gradient(135deg, #A1D6E2, #1995AD)" }}
+        style={{ background: "linear-gradient(135deg, #A1D6E2, #98d3ee)" }}
         variant="dark"
         className="navcontainer shadow-sm p-2"
       >
