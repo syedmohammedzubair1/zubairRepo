@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import "./AboutYourCompany.css";
+import HomeMin from "../../components/HomeComponent/HomeMin";
 
 export default function AboutYourCompany() {
   const companyLogos = [
@@ -76,6 +77,8 @@ export default function AboutYourCompany() {
           </div>
         ))}
       </div>
+
+      <HomeMin/>
 
       <div className="logos-wrapper">
         <div className="logos-container">
