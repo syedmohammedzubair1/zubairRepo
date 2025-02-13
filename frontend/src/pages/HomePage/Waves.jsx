@@ -4,31 +4,6 @@ import "./Waves.css"; // Import the external CSS file
 const Waves = () => {
   return (
     <div className="wave-container">
-      {/* <svg
-
-        width="100%"
-        height="100%"
-        id="svg"
-        viewBox="0 0 1440 590"
-        xmlns="http://www.w3.org/2000/svg"
-        className="transition duration-300 ease-in-out delay-150"
-        style={{ transform: "scaleY(-1)" }} // Flip the SVG
-      >
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
-            <stop offset="5%" stopColor="#F78DA7"></stop>
-            <stop offset="95%" stopColor="#8ED1FC"></stop>
-          </linearGradient>
-        </defs>
-        <path
-          d="M 0,600 L 0,90 C 59.47268467135281,92.02047108151436 118.94536934270562,94.04094216302873 177,102 C 235.05463065729438,109.95905783697127 291.69120730053027,123.85670242939942 344,121 C 396.30879269946973,118.14329757060058 444.28980145517323,98.53224811937352 491,97 C 537.7101985448268,95.46775188062648 583.1495868787766,112.01430509310644 638,110 C 692.8504131212234,107.98569490689356 757.1118510297201,87.41053150820075 805,86 C 852.8881489702799,84.58946849179925 884.4030090023429,102.34356887409052 944,114 C 1003.5969909976571,125.65643112590948 1091.2761129609078,131.21519299543718 1144,114 C 1196.7238870390922,96.78480700456284 1214.4925391540262,56.795659144160815 1258,49 C 1301.5074608459738,41.204340855839185 1370.7537304229868,65.60217042791959 1440,90 L 1440,600 L 0,600 Z"
-          stroke="none"
-          strokeWidth="0"
-          fill="url(#gradient)"
-          fillOpacity="0.265"
-          className="transition-all duration-300 ease-in-out delay-150 path-0"
-        ></path>
-      </svg> */}
       <svg
         width="100%"
         height="100%"
@@ -88,7 +63,7 @@ const Waves = () => {
           y="40%"
           text-anchor="middle"
           fill="#333"
-          font-size="50px"
+          font-size="45px"
           font-weight="bold"
         >
           Welcome to our company
