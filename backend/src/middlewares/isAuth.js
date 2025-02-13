@@ -32,3 +32,17 @@ export const isAdmin = (req, res, next) => {
   }
   next();
 };
+
+export const isEmployee = (req, res, next) => {
+  if (!req.user || req.user.role !== 'employee') {
+    return res.status(httpStatus.FORBIDDEN).json({ message: 'Access denied' });
+  }
+  next();
+};
+
+export const isthirdParty = (req, res, next) => {
+  if (!req.user || req.user.role !== 'thirdParty') {
+    return res.status(httpStatus.FORBIDDEN).json({ message: 'Access denied' });
+  }
+  next();
+};
