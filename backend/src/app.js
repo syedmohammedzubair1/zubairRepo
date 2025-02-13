@@ -9,11 +9,7 @@ const __dirname = path.dirname(__filename);
 // Load .env from backend/ instead of src/
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-// console.log("DEBUG MONGODB_URL:", process.env.MONGODB_URL);
-// console.log("DEBUG PORT:", process.env.PORT);
 
-import express from "express";
-import cors from "cors";
 import employeeRouter from "./routes/user.route.js";
 import express from "express";
 import cors from "cors";
@@ -51,9 +47,18 @@ app.use(
   })
 );
 
+//admin add here
+
+
+//employee add here
+
+
+
+//thirdparty add here
+
+
+
 app.use(passport.initialize());
-
-
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", UserRouter);
 app.use("/api/v1", companyRouter);
