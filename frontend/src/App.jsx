@@ -24,6 +24,7 @@ import { PerformanceProvider } from "./context/PerformanceContext";
 
 
 
+import InvoiceGenerator from "./components/DashboardComponent/3ThirdParty/EarningManagement/InvoiceGenerator.jsx";
 function App() {
   return (
     <>
@@ -48,6 +49,7 @@ function App() {
                   <Route path="/performances" element={<PerformancePage />} />
                   <Route path="/performance/:id" element={<PerformanceDetail />} />
 
+                  <Route path ="/tdparty/EarningManagement/invoice" element={<InvoiceGenerator />} />
                   {/* <Route
                     path="/employee"
                     element={

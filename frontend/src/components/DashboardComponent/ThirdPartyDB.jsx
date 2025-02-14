@@ -31,13 +31,14 @@ import ChatIcon from "@mui/icons-material/Chat";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
-import { Style } from "@mui/icons-material";
+// import { Style } from "@mui/icons-material";
+import { TaskManagment } from "./TaskManagment/TaskManagment";
 
 // Navigation items
 const NAVIGATION = [
   {
     segment: "home",
-    title: "Home Management",
+    title: "Task Management",
     icon: <HomeIcon />,
   },
   { segment: "usermanagement", title: "User Management", icon: <PeopleIcon /> },
@@ -138,7 +139,8 @@ export default function ThirdPartyDB() {
   const renderContent = () => {
     switch (selectedSegment) {
       case "home":
-        return <Typography paragraph>🏠 Home</Typography>;
+        // return <Typography paragraph>🏠 Task Management</Typography>;
+        return <Typography><TaskManagment/></Typography>
       case "usermanagement":
         return <Typography paragraph>👥 User Management Content</Typography>;
       case "contentmanagement":
