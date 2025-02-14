@@ -25,6 +25,7 @@ import userNotifyRouter from "./routes/userNotify.route.js";
 import performanceRouter from "./routes/perfomance.route.js";
 import taskRouter from "./routes/task.route.js";
 import empRouter from "./routes/employee.route.js";
+import project from "./routes/project.route.js";
 
 // Initialize Express
 const app = express();
@@ -51,12 +52,6 @@ app.use(
 
 // Initialize Passport
 app.use(passport.initialize());
-
-// Debugging: Log environment variables
-console.log("✅ DEBUG: MONGO_URI =", process.env.MONGODB_URL);
-console.log("✅ DEBUG: PORT =", process.env.PORT);
-console.log("✅ DEBUG: SESSION_SECRET =", process.env.SESSION_SECRET);
-
 // Routes
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", userRouter);
@@ -66,23 +61,8 @@ app.use("/api/v1", userNotifyRouter);
 app.use("/api/v1", performanceRouter);
 app.use("/api/v1", taskRouter);
 app.use("/api/v1", empRouter);
+app.use("/api/v1",project);
 
-// Debugging: Check if routes are loaded
-console.log("✅ API routes initialized");
-
-// Default route
-app.get("/", (req, res) => {
-  res.send("🚀 Server is running...");
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error("❌ Server Error:", err);
-  res.status(500).json({ error: "Internal Server Error" });
-});
-
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log("server is running on port", process.env.PORT);
 });
