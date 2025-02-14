@@ -18,17 +18,23 @@ import EmployeeDashBoard from "./components/DashboardComponent/EmployeeDashBoard
 import ThirdPartyDB from "./components/DashboardComponent/ThirdPartyDB.jsx";
 import OHome from "./pages/HomePage/OHome.jsx";
 import "./App.css"
+import PerformancePage from "./pages/PerformancePage";
+import PerformanceDetail from "./components/DashboardComponent/3ThirdParty/Performance/PerformanceDetail.jsx";
+import { PerformanceProvider } from "./context/PerformanceContext";
+
+
 
 function App() {
   return (
     <>
-    <AuthProvider>
-      <UserContextProvider>
-        <AdminContextProvider>
-          <ThirdPartyContextProvider>
-            <EmployeeContextProvider>
+      <AuthProvider>
+        <UserContextProvider>
+          <AdminContextProvider>
+            <ThirdPartyContextProvider>
+              <EmployeeContextProvider>
+              <PerformanceProvider>
                 <Routes>
-                {/* <Route path="/getemp1" element={<EmployeeListPage />} /> */}
+                  {/* <Route path="/getemp1" element={<EmployeeListPage />} /> */}
 
                   <Route path="/" element={<OHome />} />
                   {/* <Route path="/home" element={<Home1 />} /> */}
@@ -36,6 +42,11 @@ function App() {
                   <Route path="/admin" element={<AdminDashBoard />} />
                   <Route path="/employee" element={<EmployeeDashBoard />} />
                   <Route path="/tdparty" element={<ThirdPartyDB />} />
+
+
+                  {/* Performance Metrics Routes */}
+                  <Route path="/performances" element={<PerformancePage />} />
+                  <Route path="/performance/:id" element={<PerformanceDetail />} />
 
                   {/* <Route
                     path="/employee"
@@ -79,12 +90,13 @@ function App() {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer />
-            </EmployeeContextProvider>
-          </ThirdPartyContextProvider>
-        </AdminContextProvider>
-      </UserContextProvider>
-    </AuthProvider>
-  </>
+                </PerformanceProvider>
+              </EmployeeContextProvider>
+            </ThirdPartyContextProvider>
+          </AdminContextProvider>
+        </UserContextProvider>
+      </AuthProvider>
+    </>
   );
 }
 
