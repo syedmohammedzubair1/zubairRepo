@@ -45,3 +45,5 @@ const projectSchema = new Schema({
     ]
 })
 
+let project=mongoose.model("projects",projectSchema)
+export default project;

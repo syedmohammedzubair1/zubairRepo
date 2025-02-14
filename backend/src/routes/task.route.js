@@ -6,25 +6,25 @@ import { getTasks,
     updateTaskStatus,
     addPerformanceRating,
     } from "../controllers/task.controller.js";
-import { isAdmin, isAuth, } from "../middlewares/isAuth.js";
+import { isAdmin, isAuth } from "../middlewares/isAuth.js";
 
 const taskRouter = new Router();
 
-taskRouter.route("/")
+taskRouter.route("/tasks")
   .get(getTasks)     
   .post(isAuth, isAdmin, createTask); 
 
 // Routes for specific task operations (by task ID)
-taskRouter.route("/:id")
+taskRouter.route("/task/:id")
   .get(getTaskById)   
   .put(isAuth, isAdmin,updateTask); 
 
 // Route to update only the task status
-taskRouter.route("/:id/status")
+taskRouter.route("/task/:id/status")
   .put(isAuth, isAdmin,updateTaskStatus);
 
 // Route to add a performance rating/review to a task
-taskRouter.route("/:id/reviews")
+taskRouter.route("/task/:id/reviews")
   .post(isAuth, isAdmin,addPerformanceRating);
 
 //here we need to chanage the IsAdmin replace with team lead 

@@ -31,7 +31,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
-import { Style } from "@mui/icons-material";
+// import { Style } from "@mui/icons-material";
 
 // Navigation items
 const NAVIGATION = [

@@ -25,6 +25,7 @@ import userNotifyRouter from "./routes/userNotify.route.js";
 import performanceRouter from "./routes/perfomance.route.js";
 import taskRouter from "./routes/task.route.js";
 import empRouter from "./routes/employee.route.js";
+import project from "./routes/project.route.js";
 
 const app = express();
 
@@ -68,6 +69,7 @@ app.use("/api/v1", userNotifyRouter);
 app.use("/api/v1", performanceRouter);
 app.use("/api/v1", taskRouter);
 app.use("/api/v1",empRouter);
+app.use("/api/v1",project);
 
 app.listen(process.env.PORT, () => {
   console.log("server is running on port", process.env.PORT);
