@@ -31,13 +31,19 @@ import ChatIcon from "@mui/icons-material/Chat";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
-import { Style } from "@mui/icons-material";
+import { TaskManagment } from "./3ThirdParty/TaskManagment/TaskManagment";
+// import { Style } from "@mui/icons-material";
+
 
 // Navigation items
 const NAVIGATION = [
   {
     segment: "home",
+<<<<<<< HEAD
     title: "Task overview",
+=======
+    title: "Task Management",
+>>>>>>> 099d6b9fd649e5f1d063067d0daa4a5ca05d418e
     icon: <HomeIcon />,
   },
  
@@ -130,7 +136,12 @@ export default function ThirdPartyDB() {
   const renderContent = () => {
     switch (selectedSegment) {
       case "home":
+<<<<<<< HEAD
         return <Typography paragraph>🏠 Task Overview</Typography>;
+=======
+        // return <Typography paragraph>🏠 Task Management</Typography>;
+        return <Typography><TaskManagment/></Typography>
+>>>>>>> 099d6b9fd649e5f1d063067d0daa4a5ca05d418e
       case "usermanagement":
         return <Typography paragraph>👥 Earning Management</Typography>;
       case "contentmanagement":
