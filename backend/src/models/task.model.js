@@ -86,5 +86,5 @@ const taskSchema = new mongoose.Schema({
 // Optionally, create text indexes if you need advanced search functionality
 // taskSchema.index({ title: 'text', description: 'text' });
 
-const Task = mongoose.model("Task", taskSchema);
+const Task = mongoose.model("Tasks", taskSchema);
 export default Task;
