@@ -1,0 +1,67 @@
+body {
+  background-color: #A1D6E2;
+  color: #1995AD;
+}
+
+.min-h-screen {
+  background-color: #f1f1f2;
+}
+
+.bg-white {
+  background-color: #A1D6E2;
+}
+
+.text-white {
+  color: #f1f1f2;
+}
+
+.bg-gray-100 {
+  background-color: #f1f1f2;
+}
+
+.border {
+  border-color: #1995AD;
+}
+
+input, select {
+  background-color: #f1f1f2;
+  border: 1px solid #1995AD;
+  color: #1995AD;
+}
+
+button {
+  background-color: #1995AD;
+  color: #f1f1f2;
+}
+
+button:hover {
+  background-color: #A1D6E2;
+  color: #1995AD;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(25, 149, 173, 0.3);
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.rounded-lg {
+  border-radius: 8px;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.card {
+  padding: 2em;
+  background-color: #A1D6E2;
+  color: #1995AD;
+}
+
+.read-the-docs {
+  color: #888;
+}
