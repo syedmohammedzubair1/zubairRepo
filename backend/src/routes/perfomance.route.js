@@ -1,14 +1,13 @@
-import {Router} from "express";
-import { deletePerformances, getOnePerformance, getPerformances, postPerformances, updatePerformance } from "../controllers/perform.controller.js";
+import { Router } from "express";
+import { deletePerformance, getOnePerformance, getPerformances, postPerformance, updatePerformance } from "../controllers/performance.controller.js";
 import { isAuth } from "../middlewares/isAuth.js";
 
-const performanceRouter = new Router();
+const performanceRouter = Router();
 
-performanceRouter.get("/performances", getPerformances);
-performanceRouter.get("/performance/:id",isAuth, getOnePerformance);
-performanceRouter.post("/performance",isAuth, postPerformances);
-performanceRouter.delete("/performance/:id",isAuth, deletePerformances);
-performanceRouter.put("/performance/:id",isAuth, updatePerformance);
-
+performanceRouter.get("/performances", isAuth, getPerformances);
+performanceRouter.get("/performance/:id", isAuth, getOnePerformance);
+performanceRouter.post("/performance", isAuth, postPerformance);
+performanceRouter.delete("/performance/:id", isAuth, deletePerformance);
+performanceRouter.put("/performance/:id", isAuth, updatePerformance);
 
 export default performanceRouter;
