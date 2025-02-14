@@ -18,7 +18,7 @@ import EmployeeDashBoard from "./components/DashboardComponent/EmployeeDashBoard
 import ThirdPartyDB from "./components/DashboardComponent/ThirdPartyDB.jsx";
 import OHome from "./pages/HomePage/OHome.jsx";
 import "./App.css"
-
+import InvoiceGenerator from "./components/DashboardComponent/3ThirdParty/EarningManagement/InvoiceGenerator.jsx";
 function App() {
   return (
     <>
@@ -36,7 +36,7 @@ function App() {
                   <Route path="/admin" element={<AdminDashBoard />} />
                   <Route path="/employee" element={<EmployeeDashBoard />} />
                   <Route path="/tdparty" element={<ThirdPartyDB />} />
-
+                  <Route path ="/tdparty/EarningManagement/invoice" element={<InvoiceGenerator />} />
                   {/* <Route
                     path="/employee"
                     element={
