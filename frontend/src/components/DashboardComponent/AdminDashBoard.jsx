@@ -32,6 +32,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import { Style } from "@mui/icons-material";
+import ContentManager from "./1Admin/Sathish/ContentManager.jsx";
 
 // Navigation items
 const NAVIGATION = [
@@ -142,7 +143,7 @@ export default function AdminDashBoard() {
       case "usermanagement":
         return <Typography paragraph>👥 User Management Content</Typography>;
       case "contentmanagement":
-        return <Typography paragraph>📝 Content Management Content</Typography>;
+        return <Typography paragraph><ContentManager/></Typography>;
       case "financial":
         return <Typography paragraph>💰 Financial Reports</Typography>;
       case "taskreports":
