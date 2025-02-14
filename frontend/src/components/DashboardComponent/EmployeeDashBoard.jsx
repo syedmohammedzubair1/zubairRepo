@@ -32,6 +32,10 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import { Style } from "@mui/icons-material";
+import notificationBell from "../../assets/notificationBell/bell.png";
+import notificationBell2 from "../../assets/notificationBell/bell2.png";
+// import notificationBell3 from "../../assets/notificationBell/bell3.svg";
+import NotificationComponent from "../notificationComponent/notificationComponent";
 
 // Navigation items
 const NAVIGATION = [
@@ -174,6 +178,25 @@ export default function EmployeeDashBoard() {
             <Typography variant="h6" noWrap>
               Employee Dashboard
             </Typography>
+            <IconButton color="inherit" sx={{ marginLeft: "auto" }}>
+              {/* <img src={notificationBell} alt="Notification Bell" style={{width:"30px"} } /> */}
+              {/* <img src={notificationBell2} alt="Notification Bell" style={{width:"40px"}}/> */}
+              {/* <img src={notificationBell3} alt="Notification Bell" style={{width:"30px"} } /> */}
+
+              {/* <img 
+  src={notificationBell3} 
+  alt="Notification Bell" 
+  style={{
+    width: "35px",
+    height: "35px",
+    borderRadius: "50%",
+    backgroundColor: "white",
+    padding: "5px" // Optional for spacing
+  }} 
+/> */}
+<NotificationComponent />
+
+            </IconButton>
           </Toolbar>
         </CustomAppBar>
         <Drawer
