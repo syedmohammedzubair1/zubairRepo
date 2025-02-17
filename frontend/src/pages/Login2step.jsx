@@ -97,7 +97,7 @@ const Login1 = () => {
                   {error}
                 </Typography>
               )}
-              <Typography align="end">
+              <Typography align="right">
                 <Link href="#" color="#1995AD" underline="hover">
                   For New one Contact us?
                 </Link>
@@ -124,7 +124,7 @@ const Login1 = () => {
                   Login successful!
                 </Typography>
               )}
-              <Typography align="end">
+              <Typography align="right">
                 <Link href="#" color="#1995AD" underline="hover">
                   Forgot password?
                 </Link>

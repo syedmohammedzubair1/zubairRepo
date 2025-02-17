@@ -2,10 +2,16 @@ import { useContext } from "react";
 import { PerformanceContext } from "../../../../context/PerformanceContext";
 import { Link } from "react-router-dom";
 
+
 const PerformanceList = () => {
     const { performances, loading } = useContext(PerformanceContext);
 
     if (loading) return <div className="spinner-border" role="status"><span className="visually-hidden">Loading...</span></div>;
+
+    // Ensure performances is an array before using .map
+    if (!Array.isArray(performances)) {
+        return <p>Something went wrong. No performances data available.</p>;
+    }
 
     return (
         <div className="container mt-4">
@@ -29,3 +35,5 @@ const PerformanceList = () => {
 };
 
 export default PerformanceList;
+
+
