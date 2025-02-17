@@ -18,6 +18,8 @@ import EmployeeDashBoard from "./components/DashboardComponent/EmployeeDashBoard
 import ThirdPartyDB from "./components/DashboardComponent/ThirdPartyDB.jsx";
 import OHome from "./pages/HomePage/OHome.jsx";
 import "./App.css"
+
+import Taskoverview from "./components/DashboardComponent/2Employee/Taskoverview.jsx";
 import PerformancePage from "./pages/PerformancePage";
 import PerformanceDetail from "./components/DashboardComponent/3ThirdParty/Performance/PerformanceDetail.jsx";
 import { PerformanceProvider } from "./context/PerformanceContext";
@@ -43,6 +45,8 @@ function App() {
                   <Route path="/admin" element={<AdminDashBoard />} />
                   <Route path="/employee" element={<EmployeeDashBoard />} />
                   <Route path="/tdparty" element={<ThirdPartyDB />} />
+                  <Route path="/overview" element={<Taskoverview />} />
+                  
 
 
                   {/* Performance Metrics Routes */}
